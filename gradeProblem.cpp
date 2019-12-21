@@ -11,7 +11,7 @@ int main() {
   std::cin>>sAge;
   int nAge = std::stoi(sAge);
   if(nAge >= 6 && nAge < 17) {
-    std::cout << "Go to grade 1-12" << std::endl;
+    std::cout << "Go to grade: " << nAge - 5 << std::endl;
   }
   else if(nAge == 5) {
     std::cout << "Go to kindergaretn" << std::endl;
