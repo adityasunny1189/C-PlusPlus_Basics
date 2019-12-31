@@ -2,7 +2,7 @@
 using namespace std;
 int main() {
   string source, toSearch;
-  cout << "Enter the source string: "l
+  cout << "Enter the source string: ";
   cin >> source;
   cout << "Enter the string to search: ";
   cin >> toSearch;
