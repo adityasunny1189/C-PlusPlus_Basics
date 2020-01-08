@@ -5,10 +5,18 @@ using namespace std;
 
 
 int main() {
-  char alpha;
-  cout << "Enter alphabet: ";
-  cin >> alpha;
-  char upper = alpha - 'a' + 'A';
-  cout << upper << endl;
+  char str[100];
+  cout << "Enter string: ";
+  cin >> str;
+  for(int i = 0; i < strlen(str); i++) {
+    // if(str[i] == "a") {
+    //   cout << " ";
+    // }
+    // else {
+      char upper = str[i] - 'a' + 'A';
+      cout << upper;
+    // }
+  }
+  cout << endl;
   return 0;
 }
