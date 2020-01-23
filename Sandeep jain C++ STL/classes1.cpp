@@ -19,7 +19,7 @@ public:
 };
 
 inline int A :: square() {
-  return n1 * n1;
+  return pow(n1,n1);
 }
 
 int main() {
