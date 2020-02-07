@@ -48,6 +48,29 @@
 // 4321
 // 4321
 
+// #include<iostream>
+// using namespace std;
+// int main() {
+// 	int n;
+// 	cin >> n;
+// 	int i = 1;
+// 	while(i <= n) {
+// 		int j = n;
+// 		while(j > 0) {
+// 			cout << j;
+// 			j--;
+// 		}
+// 		cout << endl;
+// 		i++;
+// 	}
+// }
+
+
+// 1
+// 12
+// 123
+// 1234
+
 #include<iostream>
 using namespace std;
 int main() {
@@ -55,10 +78,10 @@ int main() {
 	cin >> n;
 	int i = 1;
 	while(i <= n) {
-		int j = n;
-		while(j > 0) {
+		int j = 1;
+		while(j <= i) {
 			cout << j;
-			j--;
+			j++;
 		}
 		cout << endl;
 		i++;
