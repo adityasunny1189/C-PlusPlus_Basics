@@ -118,21 +118,84 @@
 // 456
 // 78910
 
+// #include<iostream>
+// using namespace std;
+// int main() {
+// 	int n;
+// 	cin >> n;
+// 	int i = 1;
+// 	int count = 1;
+// 	while(i <= n) {
+// 		int j = 1;
+// 		while(j <= i) {
+// 			cout << count;
+// 			count++;
+// 			j++;
+// 		}
+// 		i++;
+// 		cout << endl;
+// 	}
+// }
+
+// ABCD
+// BCDE
+// CDEF
+// DEFG
+
+// #include<iostream>
+// using namespace std;
+// int main() {
+// 	int n;
+// 	cin >> n;
+// 	int i = 1;
+// 	while(i <= n) {
+// 		int j = 1;
+// 		char ch = 'A' + i - 1;
+// 		while(j <= n) {
+// 			cout << ch;
+// 			ch++;
+// 			j++;
+// 		}
+// 		cout << endl;
+// 		i++;
+// 	}
+// }
+
 #include<iostream>
 using namespace std;
-int main() {
+int main()
+{
+    //write your code here
 	int n;
 	cin >> n;
-	int i = 1;
-	int count = 1;
-	while(i <= n) {
-		int j = 1;
-		while(j <= i) {
-			cout << count;
-			count++;
-			j++;
-		}
-		i++;
-		cout << endl;
-	}
+    int i = 1;
+    while(i <= n) {
+        int k = 1 ;
+        while(k <= n - i) {
+            cout << " ";
+            k += 2;
+        }
+        int j = 1;
+        while(j <= i) {
+            cout << "*";
+            j++;
+        }
+        cout << endl;
+        i = i + 2;
+    }
+    int l = 3;
+    while(l <= n) {
+        int k = 1;
+        while(k < l) {
+            cout << " ";
+            k += 2;
+        }
+        int j = l;
+        while(j <= n) {
+            cout << "*";
+            j++;
+        }
+        cout << endl;
+        l = l + 2;
+    }
 }
