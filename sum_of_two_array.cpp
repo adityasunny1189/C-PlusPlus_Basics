@@ -17,7 +17,7 @@ int main() {
 			rem = 1;
 		}
 	}
-	for(int i = 0; i < k; i++) {
+	for(int i = 0; i <= 4; i++) {
 		cout << out[i] << " ";
 	}
 	cout << endl;
