@@ -14,6 +14,20 @@ void reverseString(char input[]) {
 		input[i] = input[j];
 		input[j] = temp;
 	}
+	for(int i = 0; i < len;) {
+		int start, end;
+		for(end = i; input[end] != ' ' && end < len; end++) {
+			continue;
+		}
+		int var = end;
+		end--;
+		for(start = i; start < end; start++, end--) {
+			char temp = input[start];
+			input[start] = input[end];
+			input[end] = temp;
+		}
+		i = var + 1;
+	}
 }
 int main() {
 	char input[100];
