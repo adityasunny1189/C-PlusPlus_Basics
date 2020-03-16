@@ -16,6 +16,7 @@ char maxChar(char input[]) {
             }
         }
         if(sec > count) {
+			count = sec;
             ans = input[i];
         }
     }
