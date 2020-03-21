@@ -78,7 +78,11 @@ int main() {
 	    }
 	    int pos;
 	    cin >> pos;
-	    sortArray(arr, 0, size);
+	    sortArray(arr, 0, size - 1);
+		for(int i = 0; i < size; i++) {
+			cout << arr[i] << " ";
+		}
+		cout << endl;
 	    cout << arr[pos - 1] << endl;
 	}
 	return 0;
