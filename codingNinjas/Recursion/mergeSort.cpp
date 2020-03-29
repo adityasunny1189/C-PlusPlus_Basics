@@ -1,35 +1,25 @@
 #include<iostream>
 using namespace std;
 void merge(int arr[], int start, int mid, int end) {
-	int size1 = mid - start;
-	int size2 = end - mid;
-	int arr1[size1], arr2[size2];
-	int j = 0, k = 0;
-	for(int i = start; i < mid; i++) {
-		arr1[j++] = arr[i];
+	int size = end - start;
+	int A[size];
+	for(int i = 0; (i + start) < end; i++) {
+		A[i] = arr[start + i];
 	}
-	for(int i = mid; i < end; i++) {
-		arr2[k++] = arr[i];
-	}
-	int z = 0;
-	int i, l;
-	for(i = 0; i < size1; i++) {
-		for(l = 0; l < size2; l++) {
-			if(arr1[i] >= arr2[l]) {
-				arr[z++] = arr2[l];
-			}
-			else if(arr1[i] < arr2[l]) {
-				arr[z++] = arr1[i];
-			}
+	int p1 = start;
+	int p2 = mid;
+	while(p1 < mid && p2 < end) {
+		if(A[p1] >= A[p2]) {
+			arr[start++] = A[p2++];
+		} else {
+			arr[start++] = A[p1++];
 		}
 	}
-	while(i < size1) {
-		arr[z++] = arr1[i];
-		i++;
+	while(p1 < mid) {
+		arr[start++] = A[p1++];
 	}
-	while(l < size2) {
-		arr[z++] = arr2[l];
-		l++;
+	while(p2 < end) {
+		arr[start++] = A[p2++];
 	}
 }
 
@@ -41,7 +31,7 @@ void mergeSort(int arr[], int start, int end) {
 		int mid = (start + end) / 2;
 		mergeSort(arr, start, mid);
 		mergeSort(arr, mid + 1, end);
-		merge(arr, start, mid, end);
+		merge(arr, start, mid + 1, end);
 	}
 }
 
