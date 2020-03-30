@@ -1,14 +1,14 @@
 #include<iostream>
 using namespace std;
 void merge(int arr[], int start, int mid, int end) {
-	int size = end - start;
+	int size = end - start + 1;
 	int A[size];
-	for(int i = 0; (i + start) < end; i++) {
-		A[i] = arr[start + i];
+	for(int i = start; i <= end; i++) {
+		A[i] = arr[i];
 	}
 	int p1 = start;
 	int p2 = mid;
-	while(p1 < mid && p2 < end) {
+	while(p1 < mid && p2 <= end) {
 		if(A[p1] >= A[p2]) {
 			arr[start++] = A[p2++];
 		} else {
@@ -18,7 +18,7 @@ void merge(int arr[], int start, int mid, int end) {
 	while(p1 < mid) {
 		arr[start++] = A[p1++];
 	}
-	while(p2 < end) {
+	while(p2 <= end) {
 		arr[start++] = A[p2++];
 	}
 }
@@ -43,7 +43,7 @@ int main() {
 		cin >> arr[i];
 	}
 	cout << "Array after sorting is" << endl;
-	mergeSort(arr, 0, size);
+	mergeSort(arr, 0, size - 1);
 	for(int i = 0; i < size; i++) {
 		cout << arr[i] << " ";
 	}
