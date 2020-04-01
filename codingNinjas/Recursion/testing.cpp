@@ -6,10 +6,6 @@ void replace(char str[], char c1, char c2) {
 	}
 }
 int main() {
-	char str[100];
-	cin >> str;
-	char c1, c2;
-	cin >> c1 >> c2;
-	replace(str, c1, c2);
-	cout << str;
+	char ch = 'a';
+	cout << ch - 0;
 }
