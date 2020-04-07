@@ -1,0 +1,65 @@
+1. (Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.
+Note : The order of codes are not important. And input string does not contain 0s.
+Input format :
+
+A numeric string
+
+Constraints :
+1 <= Length of String S <= 10
+Sample Input:
+
+1123
+
+Sample Output:
+
+aabc
+kbc
+alc
+aaw
+kw)
+
+2. (Print Subset Sum to K
+Send Feedback
+Given an array A and an integer K, print all subsets of A which sum to K.
+Subsets are of length varying from 0 to n, that contain elements of the array. But the order of elements should remain same as in the input array.
+Note : The order of subsets are not important. Just print them in different lines.
+Input format :
+
+Line 1 : Size of input array
+Line 2 : Array elements separated by space
+Line 3 : K
+
+Sample Input:
+
+9
+5 12 3 17 1 18 15 3 17
+6
+
+Sample Output:
+
+3 3
+5 1)
+
+3. (Given a string S, find and return all the possible permutations of the input string.
+Note 1 : The order of permutations is not important.
+Note 2 : If original string contains duplicate characters, permutations will also be duplicates.
+Input Format :
+
+String S
+
+Output Format :
+
+All permutations (in different lines)
+
+Sample Input :
+
+abc
+
+Sample Output :
+
+abc
+acb
+bac
+bca
+cab
+cba)
