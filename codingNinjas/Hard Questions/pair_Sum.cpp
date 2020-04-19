@@ -14,12 +14,39 @@ int main() {
     int end = size - 1;
     while(start < end) {
         if(arr[start] + arr[end] == sum) {
-            cout << arr[start] << " " << arr[end] << endl;
-            start++;
+            int count;
+            int countS = 1;
+            int countE = 1;
+            int x = start + 1;
+            if(arr[start] != arr[end]) {
+                while(arr[x] == arr[start]) {
+                    countS++;
+                    x++;
+                }
+                x = end - 1;
+                while(arr[x] == arr[end]) {
+                    countE++;
+                    x--;
+                }
+            } else {
+               while(arr[x] == arr[start]) {
+                    countS++;
+                    x++;
+                } 
+            }
+            
+            count = (countS * countE);
+            for(int h = 0; h < count; h++) {
+                cout << arr[start] << " " << arr[end] << endl;
+            }   
+            start += (countS);
+            end -= (countE);
+        }
+        else if(arr[start] + arr[end] > sum) {
             end--;
         }
         else {
-            end--;
+            start++;
         }
     }
 }
