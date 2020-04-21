@@ -1,10 +1,9 @@
 class Node {
     public:
         int data;
-        Node* next;
-
+        Node *next;
         Node(int data) {
             this -> data = data;
-            next = nullptr;
+            next = NULL;
         }
 };
