@@ -11,6 +11,20 @@ void print(Node *head) {
     cout << endl;
 }
 
+Node* insertNodeRec(Node *head, int i, int data) {
+    if(i == 0) {
+        Node *newNode = new Node(data);
+        newNode -> next = head;
+        head = newNode;
+        return head;
+    }
+    if(head != NULL) {
+        Node *temp = insertNodeRec(head -> next, i - 1, data);
+        head -> next = temp;
+        return head;
+    }  
+}
+
 //Finding the Length of Linked List Recursively
 int Length(Node *head) {
     if(head -> next == NULL) {
@@ -98,18 +112,24 @@ int main() {
     // n2.next = &n3;
     // n3.next = &n4;
     // n4.next = &n5;
+
+    //Part 2
     Node *head = takeInput();
     print(head);
     cout << "Length of Linked List: ";
     cout << Length(head) << endl;
     int i, data;
     cin >> i >> data;
-    head = insertNode(head, i, data);
-    print(head);
-    cout << "Length of Linked List: ";
-    cout << Length(head) << endl;
-    cin >> i >> data;
-    head = deleteNode(head, i);
+    // head = insertNode(head, i, data);
+    // print(head);
+    // cout << "Length of Linked List: ";
+    // cout << Length(head) << endl;
+    // cin >> i >> data;
+    // head = deleteNode(head, i);
+    // print(head);
+    // cout << "Length of Linked List: ";
+    // cout << Length(head) << endl;
+    head = insertNodeRec(head, i, data);
     print(head);
     cout << "Length of Linked List: ";
     cout << Length(head) << endl;
