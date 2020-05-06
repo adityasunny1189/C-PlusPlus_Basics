@@ -11,23 +11,60 @@ public:
 		this -> capacity = capacity;
 		nextIndex = 0;
 		firstIndex = -1;
+		size = 0;
 	}
 
-	int getSize() {
+	int Size() {
 		return size;
 	}
 
 	bool isEmpty() {
-		return size;
+		return size == 0;
 	}
 
-	void Equeue(T ele) {
+	void enqueue(T ele) {
+		if(size == capacity) {
+			T *newArray = new T[2 * capacity];
+			int j = 0;
+			for(int i = firstIndex; i < capacity; i++) {
+				newArray[j++] = data[i];
+			}
+			for(int i = 0; i < firstIndex; i++) {
+				newArray[j++] = data[i];
+			}
+			firstIndex = 0;
+			nextIndex = capacity;
+			delete [] data;
+			data = newArray;
+			capacity *= 2;
+		}
+		if(firstIndex == -1) {
+			firstIndex = 0;
+		}
+		data[nextIndex] = ele;
+		nextIndex = (nextIndex + 1) % capacity;	
+		size++;
 	}
 
-	T Dequeue() {
+	T dequeue() {
+		if(!isEmpty()) {
+			size--;
+			T ans = data[firstIndex];
+			firstIndex = (firstIndex + 1) % capacity;
+			return ans;
+		} else {
+			cout << "QUEUE EMPTY" << endl;
+			return 0;
+		}
 	}
 
-	T top() {
+	T front() {
+		if(!isEmpty()) {
+			return data[firstIndex];
+		} else {
+			cout << "QUEUE EMPTY" << endl;
+			return 0;
+		}
 	}
 };
 
