@@ -12,38 +12,10 @@ int32_t main() {
 			count = ts / 2;
 		}
 		else {
-			int ans;
-			for(int i = 4; i <= ts; i += 2) {
-				int temp = ts;
-				int itemp = i;
-				bool ansGot = false;
-				while(true) {
-					if(i % 2 == 0 && temp % 2 == 0) {
-						i /= 2;
-						temp /= 2;
-						continue;
-					}
-					else if(i % 2 == 0 && temp % 2 != 0) {
-						// count++;
-						ansGot = true;
-						ans = itemp;
-						break;
-					}
-					else if(i % 2 != 0 && temp % 2 != 0) {
-						break;
-					}
-					else {
-						break;
-					}
-				}
-				i = itemp;
-				if(ansGot) {
-					break;
-				}
+			while(ts % 2 == 0) {
+				ts /= 2;
 			}
-			for(int j = ans; j <= ts; j += ans) {
-				count++;
-			}
+			count = ts / 2;
 		}
 		cout << count << endl;
 	}
