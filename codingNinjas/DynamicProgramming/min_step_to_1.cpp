@@ -51,9 +51,6 @@ int minToOneMemo(int n) {
 // Dynamic Programming
 int minToOneDP(int n) {
 	int *arr = new int[n + 1];
-	for(int i = 0; i < n + 1; i++) {
-		arr[i] = -1;
-	}
 	arr[1] = 0;
 	arr[2] = 1;
 	arr[3] = 1;
