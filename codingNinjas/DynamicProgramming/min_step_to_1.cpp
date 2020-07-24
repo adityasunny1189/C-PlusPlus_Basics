@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Brute force recursive approach
 int minToOne(int n) {
 	if(n == 1) {
 		return 0;
@@ -17,6 +18,36 @@ int minToOne(int n) {
 	return min(z, min(x, y)) + 1;
 }
 
+// Memorization / Top down approach
+int helperMemo(int n, int *arr) {
+	if(n == 1) {
+		return 0;
+	}
+	if(arr[n] != -1) {
+		return arr[n];
+	}
+	int x = helperMemo(n - 1, arr);
+	int y = n;
+	int z = n;
+	if(n % 2 == 0) {
+		y = helperMemo(n / 2, arr);
+	}
+	if(n % 3 == 0) {
+		z = helperMemo(n / 3, arr);
+	}
+	arr[n] = min(z, min(x, y)) + 1;
+	return arr[n];
+}
+
+
+int minToOneMemo(int n) {
+	int *arr = new int[n + 1];
+	for(int i = 0; i < n + 1; i++) {
+		arr[i] = -1;
+	}
+	return helperMemo(n, arr);
+}
+
 int main() {
 	freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -25,6 +56,6 @@ int main() {
     while(test--) {
     	int n;
 		cin >> n;
-		cout << minToOne(n) << endl;
+		cout << minToOneMemo(n) << endl;
     }
 }
