@@ -41,6 +41,22 @@ int minCountMemo(int n)
     return helper(n, ans);
 }
 
+// Dynamic Programming
+int minCountDP(int n) {
+	int *ans = new int[n + 1];
+	priority_queue<int, vector<int>, greater<int>> pq;
+	if(n < 1) {
+		return 0;
+	}
+	if(n == 1) {
+		return 1;
+	}
+	for(int i = 0; i < n; i++) {
+		
+	}
+	ans[n] = pq.top() + 1;
+	return ans[n];
+}
 
 int main() {
 	freopen("input.txt", "r", stdin);
