@@ -4,18 +4,19 @@ using namespace std;
 void print(int ** edges, int v, int sv, int *visited) {
     queue<int> q;
     q.push(sv);
+    visited[sv] = 1;
     while(q.size() > 0) {
         int front = q.front();
         q.pop();
+        cout << front << " ";
         for(int i = 0; i < v; i++) {
             if(i == front) {
                 continue;
             }
             if(edges[front][i] == 1) {
                 if(!visited[i]) {
-                    cout << i << " ";
-                    visited[i] = 1;
                     q.push(i);
+                    visited[i] = 1;
                 }
             }
         }
@@ -43,7 +44,5 @@ int main() {
     for(int i = 0; i < v; i++) {
         visited[i] = 0;
     }
-    visited[0] = 1;
-    cout << 0 << " ";
     print(edges, v, 0, visited);
 }
