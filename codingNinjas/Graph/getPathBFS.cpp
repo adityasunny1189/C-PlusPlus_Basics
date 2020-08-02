@@ -1,31 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool getPathBFS(int **edges, int n, int s, int e, int *visited) {
-	visited[s] = 1;
-	if(s == e) {
-		return true;
-	}
-	queue<int> pendingNodes;
-	pendingNodes.push(s);
-	while(pendingNodes.size() > 0) {
-		int front = pendingNodes.front();
-		pendingNodes.pop();
-		visited[front] = 1;
-		for(int i = 0; i < n; i++) {
-			if(i == front) {
-				continue;
-			}
-			if(edges[front][i] == 1 && !visited[i]) {
-				int smallAns = getPathBFS(edges, n, i, e, visited);
-				if(smallAns) {
-					cout << i << " ";
-					pendingNodes.push(i);
-					return true;
-				}
-			}
-		}
-	}
-	return false;
+void getPathBFS(int **edges, int n, int s, int e, int *visited) {
+	unordered_map<int, int> ourmap;
+    queue<int> pending_nodes;
+    pending_nodes.push(s);
+    ourmap[s] = 1;
+    visited[s] = 1;
+    while(!pending_nodes.empty()) {
+    	int front = pending_nodes.front();
+    	pending_nodes.pop();
+    	for(int i = 0; i < n; i++) {
+    		if(i == front) {
+    			continue;
+    		}
+    		if(edges[front][i] && !visited[i]) {
+    			pending_nodes.push(i);
+    			ourmap[i] = front;
+    			visited[i] = 1;
+    		}
+    	}
+    }
+    if(ourmap.count(ourmap[e]) > 0) {
+    	cout << e << " ";
+    	for(int i = e; ourmap[i] != s; i = ourmap[i]) {
+    		cout << ourmap[i] << " ";
+    	}
+        cout << s << " ";
+    }
 }
 
 int main() {
@@ -52,10 +53,5 @@ int main() {
 	for(int i = 0; i < v; i++) {
 		visited[i] = 0;
 	}
-	bool ans = getPathBFS(edges, v, v1, v2, visited);
-	if(ans) {
-		cout << v1 << " ";
-	}
-	
-	cout << endl;
+	getPathBFS(edges, v, v1, v2, visited);
 }
