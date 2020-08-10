@@ -14,8 +14,10 @@ void skmp(string s, string p) {
         ourmap[p[i]]--;
     }
     bool added = false;
+    bool andarGaya = false;
     for(auto i = ourmap.begin(); i != ourmap.end(); i++) {
         if(i->second) {
+            andarGaya = true;
             if(!added && (int(i->first) > int(p[0]))) {
                 cout << p;
                 added = true;
@@ -23,6 +25,9 @@ void skmp(string s, string p) {
             for(int j = 0; j < i->second; j++)
                 cout << i->first;
         }
+    }
+    if(!andarGaya || !added) {
+        cout << p;
     }
     cout << endl;
 }
