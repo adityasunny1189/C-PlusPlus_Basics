@@ -83,7 +83,7 @@ class Trie {
         	return;
         }
         
-        return search(child, word.substr(1), prev);
+        search(child, word.substr(1), prev);
     }
     
     void autoComplete(vector<string> input, string pattern) {
